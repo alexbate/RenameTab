@@ -1,11 +1,9 @@
 <html>
+	<head>
+		<script src="code.js"></script>
+	</head>
 	<body>
-		<script>
-		chrome.browserAction.onClicked.addListener(function(tab) {
-			chrome.tabs.executeScript({
-			code: 'document.title="' + window.prompt("RenameTab","Enter new name for tab"); + '"'
-		}); 
-	}); 
-	</script>
+		<input type="text" name="newTitle" id="newTitle">
+		<input type="submit" value="Rename Tab" name="changeTitle" id="changeTitle">
 	</body>
 </html>
