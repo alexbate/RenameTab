@@ -13,7 +13,12 @@
     {
       "matches": ["*://www.cl.cam.ac.uk/teaching/exams/pastpapers/*"],
       "js": ["cl.js"]
-    }
+    },
+	{
+		"matches":
+		["*://camtools.cam.ac.uk/access/content/*"],
+		"js": ["camtools.js"]
+	}
   ],
   "permissions": [
     "tabs",
