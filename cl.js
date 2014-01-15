@@ -21,5 +21,5 @@ if (finalParse[1]=="pdf") {
 	} else {
 	var newTitle = splitURL[5] + ' - ' + finalParse[0];
 	}
+	document.title=newTitle;
 }
-document.title=newTitle;
