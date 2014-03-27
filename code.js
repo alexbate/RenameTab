@@ -19,11 +19,15 @@ function handleKeyPress(e){
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-      document.querySelector('button').addEventListener('click', buttonClick);
+      document.getElementById('changeTitle').addEventListener('click', buttonClick);
+      document.getElementById('createLock').addEventListener('click', createLock);
 	  document.getElementById('newTitle').addEventListener('keypress', handleKeyPress);
 });
 
+
 function activateLock(setTitle) {
+	chrome.tabs.executeScript(null,
+      {code:"document.title='" + document.getElementById("newTitle").value + "'"});
 	var currentTabID;
 	doInCurrentTab(function(tab){currentTabID=tab.id});
 
@@ -35,4 +39,9 @@ function activateLock(setTitle) {
    		chrome.tabs.executeScript(null,
       {code:"document.title='" + setTitle + "'"});
 	}); 
+}
+
+function createLock() {
+	activateLock(document.getElementById("newTitle").value);
+	//window.close();
 }
