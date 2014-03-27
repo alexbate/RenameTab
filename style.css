@@ -1,0 +1,14 @@
+.centered {
+  width: 80%;
+  margin: 0 auto;
+}
+
+body {
+	font-family: 'Arial';
+	font-size: 10pt;
+}
+
+.footer{
+	font-style: italic;
+	font-size: 8pt;
+}
