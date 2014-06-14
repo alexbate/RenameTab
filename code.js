@@ -1,3 +1,4 @@
+var currentTabID = 0;
 function buttonClick() {
   chrome.tabs.executeScript(null,
       {code:"document.title='" + document.getElementById("newTitle").value + "'"});
@@ -21,27 +22,19 @@ function handleKeyPress(e){
 document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('changeTitle').addEventListener('click', buttonClick);
       document.getElementById('createLock').addEventListener('click', createLock);
-	  document.getElementById('newTitle').addEventListener('keypress', handleKeyPress);
+	   document.getElementById('newTitle').addEventListener('keypress', handleKeyPress);
 });
 
-
-function activateLock(setTitle) {
-	chrome.tabs.executeScript(null,
-      {code:"document.title='" + document.getElementById("newTitle").value + "'"});
-	var currentTabID;
-	doInCurrentTab(function(tab){currentTabID=tab.id});
-
-	chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-   		if (tabId !== currentTabID) {
-        	return false;
-    	}
-
-   		chrome.tabs.executeScript(null,
-      {code:"document.title='" + setTitle + "'"});
-	}); 
+function createLock() {
+  doInCurrentTab(function(tab){currentTabID = tab.id});
+  console.log(currentTabID);
+  chrome.extension.sendMessage(
+    {to:"background", relTabID:currentTabID, title:document.getElementById("newTitle").value});
+	//window.close();
 }
 
-function createLock() {
-	activateLock(document.getElementById("newTitle").value);
-	//window.close();
+function sleep(millis, callback) {
+    setTimeout(function()
+            { callback(); }
+    , millis);
 }
