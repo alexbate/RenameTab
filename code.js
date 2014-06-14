@@ -26,11 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function createLock() {
-  doInCurrentTab(function(tab){currentTabID = tab.id});
-  console.log(currentTabID);
+  doInCurrentTab(function(tab){currentTabID = tab.id;
   chrome.extension.sendMessage(
-    {to:"background", relTabID:currentTabID, title:document.getElementById("newTitle").value});
-	//window.close();
+    {to:"background", relTabID:currentTabID, title:document.getElementById("newTitle").value});}
+  );
 }
 
 function sleep(millis, callback) {
