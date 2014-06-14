@@ -3,7 +3,7 @@
 
   "name": "RenameTab",
   "description": "This extension lets you customise the title of any tab.",
-  "version": "1.4",
+  "version": "2.0",
 
   "browser_action": {
     "default_icon": "icon.png",
@@ -14,19 +14,10 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://www.cl.cam.ac.uk/teaching/*"],
-      "js": ["cl.js"]
-    },
-	{
-		"matches":
-		["*://camtools.cam.ac.uk/access/content/*"],
-		"js": ["camtools.js"]
-	},
-	{
-		"matches":
-		["*://www.maths.cam.ac.uk/undergradnst/pastpapers//*"],
-		"js": ["nstmaths.js"]
-	}
+      "matches":
+      ["*://*.cam.ac.uk/*"],
+      "js": ["cambridge.js"]
+    }
   ],
   "permissions": [
     "tabs",

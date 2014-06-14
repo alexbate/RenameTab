@@ -7,7 +7,6 @@ if (finalParse[1]=="pdf") {
 		if (splitURL[5]=='pastpapers') {
 
 			if (finalParse[1]=='pdf') {
-				console.log(finalParse[0]);
 				var newTitle=finalParse[0];
 			}
 			
