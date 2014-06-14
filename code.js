@@ -31,9 +31,3 @@ function createLock() {
     {to:"background", relTabID:currentTabID, title:document.getElementById("newTitle").value});}
   );
 }
-
-function sleep(millis, callback) {
-    setTimeout(function()
-            { callback(); }
-    , millis);
-}
