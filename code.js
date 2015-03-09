@@ -1,7 +1,8 @@
 var currentTabID = 0;
 function buttonClick() {
   chrome.tabs.executeScript(null,
-      {code:"document.title='" + document.getElementById("newTitle").value + "'"});
+      {code:"var head = document.createElement('head');var title = document.createElement('title');var text = document.createTextNode('" + document.getElementById("newTitle").value + "');title.appendChild(text);head.appendChild(title);document.body.appendChild(head);document.title='"+document.getElementById("newTitle").value+"';"
+      });
   window.close();
 }
 

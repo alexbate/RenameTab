@@ -28,5 +28,10 @@ if (splitDomain[0]=="camtools") { //Camtools
 }
 
 if (newTitle!="") {
-	document.title=newTitle;
+	var head = document.createElement('head');
+	var title = document.createElement('title');
+	var text = document.createTextNode(newTitle);
+	title.appendChild(text);
+	head.appendChild(title);
+	document.body.appendChild(head);
 }
