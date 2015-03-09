@@ -13,21 +13,20 @@ if (splitDomain[0]=="camtools") { //Camtools
 		if (splitSlash[4]=='exams') {
 			if (splitSlash[5]=='pastpapers') {
 				if (finalParse[1]=='pdf') {
-					var newTitle=finalParse[0];
+					newTitle=finalParse[0];
 				}
 			} else if (splitSlash[5]=='solutions') {
 				var finalParse = splitSlash[7].split(".");
-				var newTitle = "Solution - y" + splitSlash[6] + finalParse[0]
+				newTitle = "Solution - y" + splitSlash[6] + finalParse[0]
 			}
 		} else {
-			var newTitle = splitSlash[5] + ' - ' + finalParse[0];
+			newTitle = splitSlash[5] + ' - ' + finalParse[0];
 		}
 	}
 } else if (splitDomain[1]=="maths" && splitSlash[4]=="pastpapers") {
-	var newTitle = splitSlash[5] + " " + finalParse[0];
+	newTitle = splitSlash[5] + " " + finalParse[0];
 }
 
 if (newTitle!="") {
 	document.title=newTitle;
 }
-
