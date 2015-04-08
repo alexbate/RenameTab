@@ -1,4 +1,5 @@
 function activateLock(setTitle, tabID) {
+  setTitle = escapeInput(setTitle)
 	chrome.tabs.executeScript(tabID,
       {code:"var head = document.createElement('head');var title = document.createElement('title');var text = document.createTextNode('" + setTitle + "');title.appendChild(text);head.appendChild(title);document.body.appendChild(head);document.title='"+setTitle+"';"
       });
@@ -21,3 +22,7 @@ chrome.extension.onMessage.addListener(
         }
     }
 ) ;
+
+function escapeInput(input) {
+  return input.replace(/'/g, "\\'");
+}

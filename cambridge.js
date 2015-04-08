@@ -28,10 +28,15 @@ if (splitDomain[0]=="camtools") { //Camtools
 }
 
 if (newTitle!="") {
+	newTitle = escapeInput(newTitle);
 	var head = document.createElement('head');
 	var title = document.createElement('title');
 	var text = document.createTextNode(newTitle);
 	title.appendChild(text);
 	head.appendChild(title);
 	document.body.appendChild(head);
+}
+
+function escapeInput(input) {
+  return input.replace(/'/g, "\\'");
 }
